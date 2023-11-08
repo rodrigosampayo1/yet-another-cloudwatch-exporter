@@ -1,8 +1,5 @@
 apiVersion: v1alpha1
 discovery:
-  exportedTagsOnMetrics:
-    Lambda:
-      - Name
   jobs:
     - type: AWS/Lambda
       enableMetricData: true
