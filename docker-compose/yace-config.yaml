@@ -1,13 +1,16 @@
 apiVersion: v1alpha1
 discovery:
   exportedTagsOnMetrics:
-    Lambda:
+    lambda:
       - Name
   jobs:
     - type: AWS/Lambda
       enableMetricData: true
       regions:
         - eu-central-1
+      searchTags:
+        - key: tag_app
+          value: computation
       period: 300
       length: 300
       metrics:
