@@ -1,15 +1,18 @@
 apiVersion: v1alpha1
 discovery:
   exportedTagsOnMetrics:
-    lambda:
-      - Name
+    AWS/Lambda:
+      - app
+      - tenant
+      - productId
+      - mainProductId
   jobs:
     - type: AWS/Lambda
       enableMetricData: true
       regions:
         - eu-central-1
       searchTags:
-        - key: tag_app
+        - key: app
           value: computation
       period: 300
       length: 300

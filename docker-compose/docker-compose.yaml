@@ -43,15 +43,15 @@ services:
       - monitoring
 
   yace:
-    build: 
-      context: ../
-      dockerfile: Dockerfile
+    image: ghcr.io/nerdswords/yet-another-cloudwatch-exporter:v0.55.0 
     restart: always
     environment:
       AWS_REGION: ${AWS_REGION}
       AWS_PROFILE: ${AWS_PROFILE}
     expose: 
       - 8080
+    ports:
+      - 8080:8080
     volumes:
       - ./yace-config.yaml:/tmp/config.yml
       - $HOME/.aws:/exporter/.aws:ro
